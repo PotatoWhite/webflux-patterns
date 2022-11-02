@@ -1,0 +1,7 @@
+sec01:
+  product:
+    service: http://localhost:7070/sec01/product/
+  promotion:
+    service: http://localhost:7070/sec01/promotion/
+  review:
+    service: http://localhost:7070/sec01/review/
