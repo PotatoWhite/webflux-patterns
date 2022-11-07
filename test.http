@@ -1,2 +1,5 @@
+### sec01
 GET localhost:8080/sec01/product/51
 
+### sec02
+GET localhost:8080/sec02/flights/ATL/LAS

@@ -5,3 +5,12 @@ sec01:
     service: http://localhost:7070/sec01/promotion/
   review:
     service: http://localhost:7070/sec01/review/
+
+
+sec02:
+  delta:
+    service: http://localhost:7070/sec02/delta/
+  frontier:
+    service: http://localhost:7070/sec02/frontier/
+  jetblue:
+    service: http://localhost:7070/sec02/jetblue/
