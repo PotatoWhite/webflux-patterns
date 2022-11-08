@@ -21,6 +21,7 @@ repositories {
 dependencies {
     implementation 'io.netty:netty-resolver-dns-native-macos:4.1.84.Final:osx-aarch_64'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.jetbrains:annotations:20.1.0'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
