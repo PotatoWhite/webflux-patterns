@@ -23,10 +23,12 @@ public class PaymentOrchestrator extends Orchestrator {
                 .doOnNext(ctx::setPaymentResponse)
                 .then(Mono.just(ctx));
     }
+
     @Override
     public Predicate<OrchestrationRequestContext> isSuccess() {
         return ctx -> Status.SUCCESS.equals(ctx.getPaymentResponse().getStatus());
     }
+
     @Override
     public Consumer<OrchestrationRequestContext> cancel() {
         return ctx -> Mono.just(ctx)

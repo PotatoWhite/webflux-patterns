@@ -19,6 +19,16 @@ repositories {
 }
 
 dependencies {
+    // circuit breaker
+    implementation 'io.github.resilience4j:resilience4j-spring-boot2:1.7.1'
+    implementation 'io.github.resilience4j:resilience4j-reactor:1.7.1'
+
+    //actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    //aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
     implementation 'io.netty:netty-resolver-dns-native-macos:4.1.84.Final:osx-aarch_64'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.jetbrains:annotations:20.1.0'

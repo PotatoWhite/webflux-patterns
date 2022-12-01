@@ -16,16 +16,19 @@ import java.util.function.Predicate;
 @Service
 public class ShippingOrchestrator extends Orchestrator {
     private final ShippingClient shippingClient;
+
     @Override
     public Mono<OrchestrationRequestContext> create(OrchestrationRequestContext ctx) {
         return shippingClient.schedule(ctx.getShippingRequest())
                 .doOnNext(ctx::setShippingResponse)
                 .then(Mono.just(ctx));
     }
+
     @Override
     public Predicate<OrchestrationRequestContext> isSuccess() {
         return ctx -> Status.SUCCESS.equals(ctx.getShippingResponse().getStatus());
     }
+
     @Override
     public Consumer<OrchestrationRequestContext> cancel() {
         return ctx -> Mono.just(ctx)

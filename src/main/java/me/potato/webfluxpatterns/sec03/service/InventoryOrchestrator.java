@@ -14,7 +14,7 @@ import java.util.function.Predicate;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class InventoryOrchestrator extends Orchestrator{
+public class InventoryOrchestrator extends Orchestrator {
     private final InventoryClient inventoryClient;
 
     @Override
@@ -23,10 +23,12 @@ public class InventoryOrchestrator extends Orchestrator{
                 .doOnNext(ctx::setInventoryResponse)
                 .then(Mono.just(ctx));
     }
+
     @Override
     public Predicate<OrchestrationRequestContext> isSuccess() {
         return ctx -> Status.SUCCESS.equals(ctx.getInventoryResponse().getStatus());
     }
+
     @Override
     public Consumer<OrchestrationRequestContext> cancel() {
         return ctx -> Mono.just(ctx)

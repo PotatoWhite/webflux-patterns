@@ -14,3 +14,85 @@ sec02:
     service: http://localhost:7070/sec02/frontier/
   jetblue:
     service: http://localhost:7070/sec02/jetblue/
+
+
+sec03:
+  product:
+    service: http://localhost:7070/sec03/product/
+  user:
+    service: http://localhost:7070/sec03/user/
+  inventory:
+    service: http://localhost:7070/sec03/inventory/
+  shipping:
+    service: http://localhost:7070/sec03/shipping/
+
+sec04:
+  product:
+    service: http://localhost:7070/sec04/product/
+  user:
+    service: http://localhost:7070/sec04/user/
+  inventory:
+    service: http://localhost:7070/sec04/inventory/
+  shipping:
+    service: http://localhost:7070/sec04/shipping/
+
+sec05:
+  car:
+    service: http://localhost:7070/sec05/car/reserve/
+  room:
+    service: http://localhost:7070/sec05/room/reserve/
+
+sec06:
+  product:
+    service: http://localhost:7070/sec06/product/
+  review:
+    service: http://localhost:7070/sec06/review/
+
+sec07:
+  product:
+    service: http://localhost:7070/sec07/product/
+  review:
+    service: http://localhost:7070/sec07/review/
+
+sec08:
+  product:
+    service: http://localhost:7070/sec08/product/
+  review:
+    service: http://localhost:7070/sec08/review/
+
+sec09:
+  product:
+    service: http://localhost:7070/sec09/product/
+  review:
+    service: http://localhost:7070/sec09/review/
+
+sec10:
+  product:
+    service: http://localhost:7070/sec10/product/
+  review:
+    service: http://localhost:7070/sec10/review/
+
+resilience4j.circuitbreaker:
+  instances:
+    review-service:
+      slidingWindowType: COUNT_BASED
+      slidingWindowSize: 4
+      failureRateThreshold: 50
+#      환경변수로 주입
+#      minimumNumberOfCalls: ${MIN_NUMBER_OF_CALLS:4}
+      waitDurationInOpenState: 10s
+      permittedNumberOfCallsInHalfOpenState: 2
+      recordExceptions:
+        - org.springframework.web.reactive.function.client.WebClientResponseException
+        - java.util.concurrent.TimeoutException
+
+resilience4j.ratelimiter:
+  instances:
+    calculator-service:
+      limitRefreshPeriod: 20s
+      limitForPeriod: 5
+      timeoutDuration: 5s
+    review-service:
+      limitRefreshPeriod: 20s
+      limitForPeriod: 3
+      timeoutDuration: 0s

@@ -3,3 +3,75 @@ GET localhost:8080/sec01/product/51
 
 ### sec02
 GET localhost:8080/sec02/flights/ATL/LAS
+
+
+### sec03
+POST localhost:8080/sec03/order
+Content-Type: application/json
+
+{
+  "userId": 6,
+  "productId": 51,
+  "quantity": 0
+}
+
+
+### sec04
+POST localhost:8080/sec04/order
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "productId": 1,
+  "quantity": 5
+}
+
+### sec05
+POST localhost:8080/sec05/reserve
+Content-Type: application/json
+
+[
+  {
+    "city": "ATL",
+    "from": "2022-01-01",
+    "to": "2022-06-30",
+    "type": "CAR"
+  },
+  {
+    "city": "LA",
+    "from": "2022-07-01",
+    "to": "2022-12-31",
+    "type": "CAR"
+  },
+  {
+    "city": "ATL",
+    "from": "2022-01-01",
+    "to": "2022-06-30",
+    "type": "ROOM"
+  },
+  {
+    "city": "LA",
+    "from": "2022-07-01",
+    "to": "2022-12-31",
+    "type": "ROOM"
+  }
+]
+
+
+### sec06
+GET localhost:8080/sec06/product/1
+
+### sec07
+GET localhost:8080/sec07/product/1
+
+### sec08
+GET localhost:8080/sec08/product/1
+
+### sec09
+GET localhost:8080/sec09/calculator/1
+
+### sec09
+GET localhost:8080/sec09/product/1
+
+### sec10
+GET localhost:8080/sec10/fib/45
